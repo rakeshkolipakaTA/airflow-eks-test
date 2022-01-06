@@ -41,7 +41,7 @@ passing = KubernetesPodOperator(
     name="passing-test",
     task_id="passing-task",
     in_cluster=False,
-    config_file="/home/dinesh.velmuruga/.kube/config",
+    config_file="C:\Users\mohammadabbas.me\.kube\config",
     get_logs=True,
     dag=dag,
 )
