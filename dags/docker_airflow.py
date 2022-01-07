@@ -31,7 +31,7 @@ volume_list = [volume]
 start = DummyOperator(task_id="run_this_first", dag=dag)
 
 passing = KubernetesPodOperator(
-    namespace="default",
+#     namespace="default",
     image="vdinesh1990/test_airflow:v1",
     cmds=None,
     arguments=["52"],
@@ -40,8 +40,7 @@ passing = KubernetesPodOperator(
     labels={"foo": "bar"},
     name="passing-test",
     task_id="passing-task",
-    in_cluster=False,
-    config_file="C:\Users\mohammadabbas.me\.kube\config",
+    in_cluster=True,
     get_logs=True,
     dag=dag,
 )
