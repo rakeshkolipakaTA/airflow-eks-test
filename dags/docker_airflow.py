@@ -45,6 +45,6 @@ start = BashOperator(task_id="print_date", bash_command="date", dag=dag)
 # )
 
 passing = PythonOperator(
-    task_id="python_operator_print", python_callable=print_function(), dag=dag
+    task_id="python_operator_print", python_callable=print_function), dag=dag
 )
 passing.set_upstream(start)
