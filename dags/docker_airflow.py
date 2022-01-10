@@ -1,7 +1,8 @@
 from datetime import datetime, timedelta
 
 from airflow import DAG
-from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
+from airflow.contrib.operators.kubernetes_pod_operator import \
+    KubernetesPodOperator
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
@@ -19,7 +20,7 @@ default_args = {
 }
 
 # define the python function
-def print_function(x):
+def print_function():
     return "Python Operator print statement"
 
 
