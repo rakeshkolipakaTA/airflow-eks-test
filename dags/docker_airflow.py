@@ -1,8 +1,7 @@
 from datetime import datetime, timedelta
 
 from airflow import DAG
-from airflow.contrib.operators.kubernetes_pod_operator import \
-    KubernetesPodOperator
+from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
@@ -44,7 +43,5 @@ start = BashOperator(task_id="print_date", bash_command="date", dag=dag)
 #     dag=dag,
 # )
 
-passing = PythonOperator(
-    task_id="python_operator_print", python_callable=print_function), dag=dag
-)
+passing = PythonOperator(task_id="python_operator_print", python_callable=print_function, dag=dag)
 passing.set_upstream(start)
