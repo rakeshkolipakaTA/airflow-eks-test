@@ -23,7 +23,7 @@ def print_function():
     return "Python Operator print statement"
 
 
-dag = DAG("docker_sample", default_args=default_args, schedule_interval=None)
+dag = DAG("Market_1_DAG_2", default_args=default_args, schedule_interval=None)
 
 start = BashOperator(task_id="print_date", bash_command="date", dag=dag)
 
@@ -43,5 +43,5 @@ start = BashOperator(task_id="print_date", bash_command="date", dag=dag)
 #     dag=dag,
 # )
 
-passing = PythonOperator(task_id="python_operator_print", python_callable=print_function, dag=dag)
+passing = PythonOperator(task_id="python_operator_print2", python_callable=print_function, dag=dag)
 passing.set_upstream(start)
